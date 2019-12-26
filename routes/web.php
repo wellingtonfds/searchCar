@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    $crawler = \Spatie\Crawler\Crawler::create()
-        ->addCrawlObserver(new \App\Observers\GetCarObserver())
-        ->setMaximumDepth(1)
-        ->startCrawling('https://seminovos.com.br/carro/chevrolet');
-    $crawler;
+Route::get('/', function (\App\Services\CrawlerCarBrands $carBrands) {
+    $carBrands->crawler();
 });

@@ -15,7 +15,23 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('version')->nullable();
+            $table->date('year')->index();
+            $table->date('model')->index();
+            $table->enum('gearbox', ['Manual', 'Automático', 'Não Informado']);
+            $table->integer('doors')->default(2);
+            $table->enum('gas', [
+                'Álcool', 'Bi-Combustível', 'Diesel', 'Gasolina', 'Gasolina + Kit Gás', 'Kit Gás','Tetra Fuel'
+            ]);
+            $table->string('license_plate')->nullable();
+            $table->json('accessories')->nullable();
+            $table->text('descriptions')->nullable();
+            $table->boolean('price')->nullable();
+            $table->bigInteger('template_id')->unsigned()->index();
+            $table->foreign('template_id')
+                ->references('id')->on('templates')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
+            $table->boolean('exchange')->default(false);
         });
     }
 

@@ -13,6 +13,13 @@ use Spatie\Crawler\CrawlObserver;
 
 class GetCarObserver extends CrawlObserver
 {
+    public $brand = null;
+
+    public function __construct($brand = null)
+    {
+        $this->brand = $brand;
+    }
+
     /**
      * Exclude words
      */
@@ -44,6 +51,7 @@ class GetCarObserver extends CrawlObserver
         if($url->getHost() == 'seminovos.com.br' &&  $url->__toString() != 'https://seminovos.com.br/'){
             if($this->validUri($url->getPath()) && $url->__toString() != null){
                 $getContent = new GetContent();
+                dump($this->brand);
                 $getContent->content($url->__toString());
                 exit();
             }

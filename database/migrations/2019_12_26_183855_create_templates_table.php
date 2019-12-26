@@ -15,6 +15,14 @@ class CreateTemplatesTable extends Migration
     {
         Schema::create('templates', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->bigInteger('brand_id')->unsigned()->index();
+            $table->foreign('brand_id')
+                ->references('id')->on('brands')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->bigInteger('type_id')->unsigned()->index();
+            $table->foreign('type_id')
+                ->references('id')->on('types')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
