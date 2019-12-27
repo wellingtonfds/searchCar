@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function (\App\Services\CrawlerCarBrands $carBrands) {
-    $carBrands->crawler();
+Route::get('/', function () {
+    return "please call api/seed to star a database. Thanks";
 });

@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 Route::get('cars/search','CarController@search')->name('cars.search');
 Route::resource('cars','CarController');
 
-Route::get('test',function (){
-    return "test";
-});
+Route::get('seed',function (\App\Services\CrawlerCarBrands $carBrands){
+    $carBrands->crawler();
+    return response('wait for jobs thanks');
+})->name('seed');
