@@ -24,6 +24,7 @@ class CrawlerCarBrands
                 ->addCrawlObserver(new GetCarObserver($brand))
                 ->setMaximumDepth(1)
                 ->startCrawling("https://seminovos.com.br/carro/$brand");
+
         }
     }
 

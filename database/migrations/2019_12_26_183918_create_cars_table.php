@@ -26,12 +26,12 @@ class CreateCarsTable extends Migration
             $table->string('license_plate')->nullable();
             $table->json('accessories')->nullable();
             $table->text('descriptions')->nullable();
-            $table->boolean('price')->nullable();
+            $table->double('price')->nullable();
             $table->bigInteger('template_id')->unsigned()->index();
             $table->foreign('template_id')
                 ->references('id')->on('templates')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
-            $table->boolean('exchange')->default(false);
+            $table->string('exchange')->nullable();
         });
     }
 
