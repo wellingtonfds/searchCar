@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0e8cd0706abd5ab170f92d7ccc11954",
+    "content-hash": "c1e23699ca7b94cb305bf75d1adef1a2",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1383,24 +1383,27 @@
         },
         {
             "name": "paquettg/php-html-parser",
-            "version": "2.1.0",
+            "version": "dev-dev/2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paquettg/php-html-parser.git",
-                "reference": "d1000936350fed2cb6c54058890d2d19c5ccba4f"
+                "reference": "4cb23846999568e36e9f5d6d8ee50d83d0b25097"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paquettg/php-html-parser/zipball/d1000936350fed2cb6c54058890d2d19c5ccba4f",
-                "reference": "d1000936350fed2cb6c54058890d2d19c5ccba4f",
+                "url": "https://api.github.com/repos/paquettg/php-html-parser/zipball/4cb23846999568e36e9f5d6d8ee50d83d0b25097",
+                "reference": "4cb23846999568e36e9f5d6d8ee50d83d0b25097",
                 "shasum": ""
             },
             "require": {
+                "ext-curl": "*",
                 "ext-mbstring": "*",
+                "ext-zlib": "*",
                 "paquettg/string-encode": "~1.0.0",
                 "php": ">=7.1"
             },
             "require-dev": {
+                "infection/infection": "^0.13.4",
                 "mockery/mockery": "^1.2",
                 "php-coveralls/php-coveralls": "^2.1",
                 "phpunit/phpunit": "^7.5.1"
@@ -1429,7 +1432,7 @@
                 "html",
                 "parser"
             ],
-            "time": "2019-08-18T18:27:45+00:00"
+            "time": "2019-09-29T02:32:49+00:00"
         },
         {
             "name": "paquettg/string-encode",
@@ -2189,6 +2192,64 @@
                 "spatie"
             ],
             "time": "2019-11-25T12:29:24+00:00"
+        },
+        {
+            "name": "spatie/laravel-query-builder",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-query-builder.git",
+                "reference": "e66471c34b28a9511bb545d8c8ec0164b2913301"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-query-builder/zipball/e66471c34b28a9511bb545d8c8ec0164b2913301",
+                "reference": "e66471c34b28a9511bb545d8c8ec0164b2913301",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.6.34|~5.7.0|~5.8.0|^6.0",
+                "illuminate/http": "~5.6.34|~5.7.0|~5.8.0|^6.0",
+                "illuminate/support": "~5.6.34|~5.7.0|~5.8.0|^6.0",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "ext-json": "*",
+                "orchestra/testbench": "~3.6.0|~3.7.0|~3.8.0|^4.0",
+                "phpunit/phpunit": "^7.0|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\QueryBuilder\\QueryBuilderServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\QueryBuilder\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Vanderbist",
+                    "email": "alex@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easily build Eloquent queries from API requests",
+            "homepage": "https://github.com/spatie/laravel-query-builder",
+            "keywords": [
+                "laravel-query-builder",
+                "spatie"
+            ],
+            "time": "2019-10-08T08:48:28+00:00"
         },
         {
             "name": "spatie/robots-txt",
@@ -5917,7 +5978,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "paquettg/php-html-parser": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

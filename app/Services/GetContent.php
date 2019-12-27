@@ -25,7 +25,13 @@ class GetContent
         $response->template = new \stdClass();
         $content = file_get_contents($url);
         $html = new Dom();
-        $html->load($content);
+        try {
+            $html->load($content);
+        } catch (\Throwable $e) {
+            throw new \Exception($e->getMessage() . " line:" . $e->getLine());
+
+        }
+
         $info = $html->find('.item-info');
         $response->car->name = $info->find('h1')->text;
         $response->car->price = $info->find('.price')->text;
@@ -53,7 +59,8 @@ class GetContent
      * @param Dom\Collection $fullFeaturesContent
      * @return Array
      */
-    private function getFullFeatures(Dom\Collection $fullFeaturesContent): Array
+    private
+    function getFullFeatures(Dom\Collection $fullFeaturesContent): Array
     {
         $fullFeatures = [];
         foreach ($fullFeaturesContent as $contents) {
@@ -71,7 +78,8 @@ class GetContent
      * @param Dom\Collection $attrList
      * @return Array
      */
-    private function getAttributes(Dom\Collection $attrList): Array
+    private
+    function getAttributes(Dom\Collection $attrList): Array
     {
         $newAttr = [];
         foreach ($attrList[0] as $attr) {
@@ -92,7 +100,8 @@ class GetContent
         return $newAttr;
     }
 
-    private function getBreadCrumbs(Dom\Collection $attrList): Array
+    private
+    function getBreadCrumbs(Dom\Collection $attrList): Array
     {
         $list = [];
         foreach ($attrList as $item) {

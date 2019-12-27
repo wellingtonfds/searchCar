@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
 use Spatie\Crawler\CrawlObserver;
+use Symfony\Component\ErrorHandler\Error\FatalError;
 
 class GetCarObserver extends CrawlObserver
 {
@@ -60,6 +61,8 @@ class GetCarObserver extends CrawlObserver
                     $persistContent->persist($content);
                 }catch (\Exception $e){
                     Log::error($e->getMessage()." line:".$e->getLine());
+                }catch (FatalError $f){
+                    Log::error($f->getMessage()." line:".$f->getLine());
                 }
             }
         }
@@ -71,7 +74,7 @@ class GetCarObserver extends CrawlObserver
      */
     public function crawlFailed(UriInterface $url, RequestException $requestException, ?UriInterface $foundOnUrl = null)
     {
-        //dd($url, $requestException, $foundOnUrl);
+
     }
 
 }

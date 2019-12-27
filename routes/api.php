@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('cars/search','CarController@search')->name('cars.search');
+Route::resource('cars','CarController');
+
+Route::get('test',function (){
+    return "test";
 });
