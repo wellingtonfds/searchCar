@@ -1,9 +1,6 @@
 ## About Project
 
-This a solution of the challenge proposed by AlpesOne
-
-- I'm use Laravel on last version
-- Choose Laravel because is accessible, powerful, and provides tools required for large, robust applications.
+This a simple crawler to collect data of seminovosbh.com.br
 
 ## Installation
 
